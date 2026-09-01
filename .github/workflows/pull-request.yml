@@ -1,0 +1,9 @@
+name: pull-request
+on:
+  pull_request:
+    types: [opened, synchronize]
+  merge_group:
+
+jobs:
+  code:
+    uses: unional/.github/.github/workflows/pnpm-verify-linux.yml@main

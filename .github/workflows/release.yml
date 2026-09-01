@@ -1,0 +1,16 @@
+name: release
+on:
+  push:
+    branches: [main]
+
+jobs:
+  code:
+    uses: unional/.github/.github/workflows/pnpm-verify-linux.yml@main
+
+  release:
+    uses: unional/.github/.github/workflows/pnpm-release-changeset-oidc.yml@main
+    needs: code
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
