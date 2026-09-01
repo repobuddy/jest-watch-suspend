@@ -1,0 +1,18 @@
+parsers:
+  "**/*.cjs": "es6"
+  "**/*.mjs": "es6"
+  "**/*.ts": "typescript"
+ignores:
+  # Resolved by name from config rather than imported, so depcheck cannot see them.
+  - "@types/jest"
+  - "@types/node"
+  - "@repobuddy/biome"
+  - "@swc/jest"
+  # Used only as a bin in package.json scripts.
+  - "@biomejs/biome"
+  - rimraf
+  - turbo
+  # Invoked as a bin by .husky/commit-msg, and its config is loaded by name from
+  # commitlint.config.cjs — neither is an import depcheck can see.
+  - "@commitlint/cli"
+  - "@commitlint/config-conventional"

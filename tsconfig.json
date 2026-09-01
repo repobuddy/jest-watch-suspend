@@ -1,14 +1,22 @@
 {
-  "extends": "./tsconfig.build.json",
-  "compilerOptions": {
-    "plugins": [
-      {
-        "name": "tslint-language-service"
-      }
-    ]
-  },
-  "include": [
-    "src",
-    "typings"
-  ]
+	"compilerOptions": {
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+		"newLine": "LF",
+		// tsdown emits the build. This config exists to typecheck only, which the
+		// `tsc -p tsconfig.build.json` pass it replaced used to do as a side effect.
+		"noEmit": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ES2022",
+		// TypeScript 7 no longer pulls every @types/* package into the global scope on
+		// its own, so the ambient ones this package relies on are named here.
+		"types": ["node", "jest"]
+	},
+	"include": ["src", "tsdown.config.ts"]
 }

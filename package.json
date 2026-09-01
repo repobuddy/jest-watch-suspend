@@ -1,66 +1,78 @@
 {
-  "name": "jest-watch-suspend",
-  "version": "0.0.0-development",
-  "description": "Suspend watch mode",
-  "keywords": [
-    "jest",
-    "jest-watch-plugins",
-    "testing",
-    "tooling"
-  ],
-  "homepage": "https://github.com/unional/jest-watch-suspend",
-  "bugs": {
-    "url": "https://github.com/unional/jest-watch-suspend/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/unional/jest-watch-suspend.git"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "Homa Wong (unional)",
-    "email": "homawong@gmail.com"
-  },
-  "files": [
-    "lib"
-  ],
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "clean": "rimraf lib",
-    "codecov": "codecov",
-    "coverage": "jest --coverage",
-    "dc": "yarn depcheck",
-    "depcheck": "dependency-check . --unused --no-dev -i jest && dependency-check . --missing --no-dev",
-    "lint": "eslint --ext=js,ts .",
-    "nuke": "yarn clean && rimraf node_modules",
-    "semantic-release": "semantic-release",
-    "test": "jest",
-    "verify": "yarn lint && yarn build && yarn dc && jest --coverage",
-    "watch": "jest --watch"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "dependencies": {
-    "chalk": "^3.0.0",
-    "unpartial": "^0.6.3"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "@unional/devpkg-node": "^1.4.2",
-    "assertron": "^7.1.2",
-    "codecov": "^3.6.1",
-    "commitlint-circle": "^1.0.0",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "semantic-release": "^15.13.31"
-  },
-  "peerDependencies": {
-    "jest": ">=23"
-  }
+	"name": "jest-watch-suspend",
+	"version": "1.1.2",
+	"description": "Suspend watch mode",
+	"keywords": [
+		"jest",
+		"jest-watch-plugins",
+		"testing",
+		"tooling"
+	],
+	"homepage": "https://github.com/unional/jest-watch-suspend",
+	"bugs": {
+		"url": "https://github.com/unional/jest-watch-suspend/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/unional/jest-watch-suspend.git"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Homa Wong (unional)",
+		"email": "homawong@gmail.com"
+	},
+	"files": [
+		"lib"
+	],
+	"main": "lib/index.js",
+	"typings": "lib/index.d.ts",
+	"scripts": {
+		"build": "tsdown",
+		"check": "biome check",
+		"check:fix": "biome check --fix",
+		"clean": "rimraf lib coverage .turbo",
+		"coverage": "jest --coverage",
+		"cs": "changeset",
+		"depcheck": "depcheck",
+		"format": "biome format . --write",
+		"lint": "biome lint .",
+		"nuke": "pnpm clean && rimraf node_modules",
+		"prepare": "husky",
+		"release": "changeset publish",
+		"test": "jest",
+		"typecheck": "tsc",
+		"verify": "run-p lint verify:pkg",
+		"verify:pkg": "turbo run build coverage depcheck typecheck",
+		"version": "changeset version",
+		"watch": "jest --watch"
+	},
+	"dependencies": {
+		"chalk": "^4.1.2",
+		"unpartial": "^1.0.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.0",
+		"@changesets/cli": "^3.0.0",
+		"@commitlint/cli": "^21.2.0",
+		"@commitlint/config-conventional": "^21.2.0",
+		"@repobuddy/biome": "^2.3.0",
+		"@swc/jest": "^0.2.39",
+		"@types/jest": "^30.0.0",
+		"@types/node": "^26.0.0",
+		"depcheck": "^1.4.7",
+		"husky": "^9.1.7",
+		"jest": "30.5.0",
+		"npm-run-all2": "^9.0.0",
+		"rimraf": "^6.0.0",
+		"tsdown": "^0.22.0",
+		"turbo": "^2.10.0",
+		"typescript": "^7.0.0"
+	},
+	"peerDependencies": {
+		"jest": ">=23"
+	},
+	"packageManager": "pnpm@11.25.0",
+	"engines": {
+		"node": ">= 20"
+	}
 }
