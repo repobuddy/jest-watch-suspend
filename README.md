@@ -58,12 +58,12 @@ Run code coverage after running some `test.only()` tests:
 
 - `[s]` (suspend) ➣ change `test.only()` back to `test()` & `[e]` (with `jest-watch-toggle-config`) ➣ `[s]` (resume)
 
-[codecov-image]: https://codecov.io/gh/unional/jest-watch-suspend/branch/main/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/unional/jest-watch-suspend
+[codecov-image]: https://codecov.io/gh/repobuddy/jest-watch-suspend/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/repobuddy/jest-watch-suspend
 [downloads-image]: https://img.shields.io/npm/dm/jest-watch-suspend.svg?style=flat
 [downloads-url]: https://npmjs.org/package/jest-watch-suspend
-[github-action-image]: https://github.com/unional/jest-watch-suspend/workflows/release/badge.svg
-[github-action-url]: https://github.com/unional/jest-watch-suspend/actions
+[github-action-image]: https://github.com/repobuddy/jest-watch-suspend/workflows/release/badge.svg
+[github-action-url]: https://github.com/repobuddy/jest-watch-suspend/actions
 [npm-image]: https://img.shields.io/npm/v/jest-watch-suspend.svg?style=flat
 [npm-url]: https://npmjs.org/package/jest-watch-suspend
 [vscode-image]: https://img.shields.io/badge/vscode-ready-green.svg
