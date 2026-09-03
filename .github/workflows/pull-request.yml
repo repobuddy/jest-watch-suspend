@@ -6,4 +6,10 @@ on:
 
 jobs:
   code:
-    uses: unional/.github/.github/workflows/pnpm-verify-linux.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-verify.yml@v2
+    with:
+      # unional/.github's pnpm-verify-linux.yml was linux-only. repobuddy's
+      # pnpm-verify.yml defaults to 3 OS x 2 Node, so pin ubuntu to keep the
+      # same matrix rather than silently tripling CI for a jest watch plugin.
+      os: '["ubuntu-latest"]'
+      skip-playwright: true
