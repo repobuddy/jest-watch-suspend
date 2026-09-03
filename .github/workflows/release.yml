@@ -5,10 +5,13 @@ on:
 
 jobs:
   code:
-    uses: unional/.github/.github/workflows/pnpm-verify-linux.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-verify.yml@v2
+    with:
+      os: '["ubuntu-latest"]'
+      skip-playwright: true
 
   release:
-    uses: unional/.github/.github/workflows/pnpm-release-changeset-oidc.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-release-changeset-oidc.yml@v2
     needs: code
     permissions:
       id-token: write
