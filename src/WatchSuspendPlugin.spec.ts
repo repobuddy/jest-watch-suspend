@@ -1,4 +1,4 @@
-import WatchSuspendPlugin from '.'
+import WatchSuspendPlugin from './index.js'
 
 test('test will run on start by default', () => {
 	const plugin = new WatchSuspendPlugin({ config: {} })

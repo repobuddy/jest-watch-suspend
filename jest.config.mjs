@@ -7,6 +7,12 @@ export default {
 	transform: {
 		'^.+\\.tsx?$': ['@swc/jest', {}]
 	},
+	// The sources are ESM (`type: module`, `module: nodenext`) and carry `.js`
+	// extensions on relative imports. The tests still run in jest's CommonJS mode —
+	// @swc/jest emits CommonJS — so map those specifiers back to the bare module.
+	moduleNameMapper: {
+		'^(\\.{1,2}/.*)\\.js$': '$1'
+	},
 	testMatch: ['<rootDir>/src/**/*.spec.ts'],
 	collectCoverageFrom: ['src/**/*.ts', '!src/**/*.spec.ts'],
 	coverageReporters: ['text', 'lcov'],

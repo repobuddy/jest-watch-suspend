@@ -1,15 +1,16 @@
 import { defineConfig } from 'tsdown'
 
-// One output, pinned to the path this package has always published at (`lib/`,
-// CommonJS, `main` + `typings`). jest loads a watch plugin with `require()`, so a
-// CommonJS build is the product, not a legacy state — replacing `tsc` with tsdown
-// has to stay invisible to consumers.
+// One ESM output, pinned to the path this package has always published at (`lib/`,
+// `main` + `typings`). jest loads a watch plugin through `requireOrImportModule`
+// (jest-core), which falls back to `await import()` on `ERR_REQUIRE_ESM` and reads
+// the namespace's `.default` — so ESM is the product and `src/index.ts` default
+// exports the class.
 export default defineConfig({
 	entry: ['src/index.ts'],
-	format: 'cjs',
+	format: 'esm',
 	platform: 'node',
 	outDir: 'lib',
-	// Without this the output is .cjs / .d.cts, which moves published paths.
+	// Without this the output is .mjs / .d.mts, which moves published paths.
 	outExtensions: () => ({ js: '.js', dts: '.d.ts' }),
 	// `sourcemap: false` for the declarations: tsdown emits no .d.ts.map, so leaving
 	// it on writes a sourceMappingURL comment pointing at a file that never ships.

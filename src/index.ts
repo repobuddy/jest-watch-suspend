@@ -1,2 +1,2 @@
-import { WatchSuspendPlugin } from './WatchSuspendPlugin'
-export = WatchSuspendPlugin
+import { WatchSuspendPlugin } from './WatchSuspendPlugin.js'
+export default WatchSuspendPlugin
