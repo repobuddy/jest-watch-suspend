@@ -21,9 +21,16 @@
 		"name": "Homa Wong (unional)",
 		"email": "homawong@gmail.com"
 	},
+	"type": "module",
 	"files": [
 		"lib"
 	],
+	"exports": {
+		".": {
+			"types": "./lib/index.d.ts",
+			"default": "./lib/index.js"
+		}
+	},
 	"main": "lib/index.js",
 	"typings": "lib/index.d.ts",
 	"scripts": {
@@ -69,7 +76,7 @@
 		"typescript": "^7.0.0"
 	},
 	"peerDependencies": {
-		"jest": ">=23"
+		"jest": ">=28"
 	},
 	"packageManager": "pnpm@12.3.4",
 	"engines": {
