@@ -23,7 +23,8 @@
 	},
 	"type": "module",
 	"files": [
-		"lib"
+		"lib",
+		"CHANGELOG.md"
 	],
 	"exports": {
 		".": {
