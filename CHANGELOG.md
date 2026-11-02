@@ -1,5 +1,11 @@
 # jest-watch-suspend
 
+## 2.0.1
+
+### Patch Changes
+
+- 8445b94: Include `CHANGELOG.md` in the published package.
+
 ## 2.0.0
 
 ### Major Changes
